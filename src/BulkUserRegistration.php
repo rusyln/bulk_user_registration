@@ -67,9 +67,22 @@ class BulkUserRegistration implements BulkUserRegistrationInterface {
     $user->enforceIsNew();
     if (!$userData[self::FIELD_STATUS]) {
       $user->block();
-    }
-    else {
+    } else {
       $user->activate();
+    }
+
+    // Add standard fields
+    if (isset($userData[self::FIELD_FIRSTNAME])) {
+      $user->set('field_firstname', $userData[self::FIELD_FIRSTNAME]);
+    }
+    if (isset($userData[self::FIELD_LASTNAME])) {
+      $user->set('field_lastname', $userData[self::FIELD_LASTNAME]);
+    }
+    if (isset($userData[self::FIELD_DIVISION])) {
+      $user->set('field_division', $userData[self::FIELD_DIVISION]);
+    }
+    if (isset($userData[self::FIELD_DEPARTMENT])) {
+      $user->set('field_department', $userData[self::FIELD_DEPARTMENT]);
     }
 
     // Single or multiple roles will be applied to the user object. Multiple
@@ -171,6 +184,10 @@ class BulkUserRegistration implements BulkUserRegistrationInterface {
       self::FIELD_EMAIL,
       self::FIELD_STATUS,
       self::FIELD_ROLE,
+      self::FIELD_FIRSTNAME,
+      self::FIELD_LASTNAME,
+      self::FIELD_DIVISION,
+      self::FIELD_DEPARTMENT,
     ];
   }
 
