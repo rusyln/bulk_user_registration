@@ -1,0 +1,10 @@
+bulk_user_registration.settings:
+  type: config_object
+  label: 'Bulk user registration settings'
+  mapping:
+    allowed_roles:
+      type: sequence
+      label: 'Allowed roles'
+      sequence:
+        type: string
+        label: 'Role'

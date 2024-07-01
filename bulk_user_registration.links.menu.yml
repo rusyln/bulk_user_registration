@@ -1,0 +1,5 @@
+bulk_user_registration.settings:
+  title: 'Bulk User Registration Settings'
+  parent: user.admin_index
+  description: 'Configure Bulk user registration settings.'
+  route_name: bulk_user_registration.settings

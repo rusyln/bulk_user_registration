@@ -1,0 +1,23 @@
+bulk_user_registration.settings:
+  path: '/admin/config/people/bulk_user_register'
+  defaults:
+    _form: 'Drupal\bulk_user_registration\Form\SettingsForm'
+    _title: 'Bulk user registration settings'
+  requirements:
+    _permission: 'administer bulk user registration'
+
+bulk_user_registration.import:
+  path: '/admin/people/bulk_user_register'
+  defaults:
+    _form: 'Drupal\bulk_user_registration\Form\BulkUserImport'
+    _title: 'Bulk User Registration'
+  requirements:
+    _permission: 'bulk user registration import'
+
+bulk_user_registration.csv_sample:
+  path: '/admin/people/bulk_user_register/sample'
+  defaults:
+    _controller: '\Drupal\bulk_user_registration\Controller\SampleCsv::content'
+    _title: 'CSV sample'
+  requirements:
+    _permission: 'bulk user registration import'

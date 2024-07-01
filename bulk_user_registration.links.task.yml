@@ -1,0 +1,5 @@
+bulk_user_registration.import:
+  title: 'Bulk Registration'
+  route_name: bulk_user_registration.import
+  base_route: entity.user.collection
+  weight: 5

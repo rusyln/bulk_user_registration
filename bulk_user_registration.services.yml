@@ -1,0 +1,4 @@
+services:
+  bulk_user_registration:
+    class: Drupal\bulk_user_registration\BulkUserRegistration
+    arguments: ['@language_manager', '@module_handler']

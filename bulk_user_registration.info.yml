@@ -1,0 +1,12 @@
+name: Bulk User Registration
+type: module
+description: 'To import user from CSV file'
+package: import
+configure: bulk_user_registration.settings
+core: '8.x'
+core_version_requirement: ^8 || ^9 || ^10
+
+# Information added by Drupal.org packaging script on 2023-03-02
+version: '2.0.0'
+project: 'bulk_user_registration'
+datestamp: 1677737372
