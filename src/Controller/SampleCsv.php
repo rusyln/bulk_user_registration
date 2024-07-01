@@ -24,40 +24,40 @@ class SampleCsv extends ControllerBase {
     return $response;
   }
 
-  /**
-   * Returns the sample CSV data.
-   *
-   * @return string
-   *   CSV data. Fields separated by comma, rows separated by new line.
-   */
-  protected function getCsvData() {
+/**
+ * Returns the sample CSV data.
+ *
+ * @return string
+ *   CSV data. Fields separated by comma, rows separated by new line.
+ */
+protected function getCsvData() {
 
-    $rows[] = implode(',', $this->wrap($this->getFieldNames()));
-    $rows[] = 'active-user-default-role,mail1@example.com,1';
-    $rows[] = 'blocked-user-default-role,mail2@example.com,0';
-    $rows = array_merge($rows, $this->getUserDataWithRole());
+  $rows[] = implode(',', $this->wrap($this->getFieldNames()));
+  $rows[] = 'active-user-default-role,mail1@example.com,1,default-role,division1'; // Updated sample data
+  $rows[] = 'blocked-user-default-role,mail2@example.com,0,default-role,division2'; // Updated sample data
+  $rows = array_merge($rows, $this->getUserDataWithRole());
 
-    return implode("\n", $rows);
+  return implode("\n", $rows);
+}
+
+/**
+ * Returns CSV data for users with role. One user per role.
+ *
+ * @return array
+ *   Comma separated user data.
+ */
+protected function getUserDataWithRole() {
+
+  $data = [];
+  $allowedRoles = \Drupal::config('bulk_user_registration.settings')
+    ->get('allowed_roles');
+
+  foreach (array_filter($allowedRoles) as $role) {
+    $data[] = "user_{$role},mail.{$role}@example.com,1,{$role},division-{$role}"; // Updated to include division
   }
 
-  /**
-   * Returns CSV data for users with role. One user per role.
-   *
-   * @return array
-   *   Comma separated user data.
-   */
-  protected function getUserDataWithRole() {
-
-    $data = [];
-    $allowedRoles = \Drupal::config('bulk_user_registration.settings')
-      ->get('allowed_roles');
-
-    foreach (array_filter($allowedRoles) as $role) {
-      $data[] = "user_{$role},mail.{$role}@example.com,1,{$role}";
-    }
-
-    return $data;
-  }
+  return $data;
+}
 
   /**
    * Returns the CSV field names.
@@ -72,6 +72,7 @@ class SampleCsv extends ControllerBase {
       'email',
       'status',
       'role',
+      'field_division', 
     ];
     $extraFields = \Drupal::moduleHandler()->invokeAll('bulk_user_registration_extra_fields');
 
