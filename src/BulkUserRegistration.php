@@ -81,9 +81,7 @@ class BulkUserRegistration implements BulkUserRegistrationInterface {
     if (isset($userData[self::FIELD_DIVISION])) {
       $user->set('field_division', $userData[self::FIELD_DIVISION]);
     }
-    if (isset($userData[self::FIELD_DEPARTMENT])) {
-      $user->set('field_department', $userData[self::FIELD_DEPARTMENT]);
-    }
+
 
     // Single or multiple roles will be applied to the user object. Multiple
     // roles should be comma separated.
@@ -187,7 +185,6 @@ class BulkUserRegistration implements BulkUserRegistrationInterface {
       self::FIELD_FIRSTNAME,
       self::FIELD_LASTNAME,
       self::FIELD_DIVISION,
-      self::FIELD_DEPARTMENT,
     ];
   }
 
