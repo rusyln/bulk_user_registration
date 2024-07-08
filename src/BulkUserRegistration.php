@@ -211,7 +211,7 @@ class BulkUserRegistration implements BulkUserRegistrationInterface {
       self::FIELD_OFFICE,
       self::FIELD_DIVISION,
       self::FIELD_MOBILE_NUMBER,
-      self::FIELD_POSITION
+      self::FIELD_POSITION,
       self::FIELD_ID_NUMBER
     ];
   }
