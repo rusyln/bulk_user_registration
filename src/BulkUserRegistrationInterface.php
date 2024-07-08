@@ -17,9 +17,15 @@ interface BulkUserRegistrationInterface {
   const FIELD_STATUS = 'status';
   const FIELD_ROLE = 'role';
   const FIELD_FIRSTNAME = 'field_firstname';
+  const FIELD_MIDDLENAME = 'field_middlename';
   const FIELD_LASTNAME = 'field_lastname';
-  const FIELD_DIVISION = 'field_division';
-  const FIELD_DEPARTMENT = 'field_department';
+  const FIELD_SEX = 'field_sex';
+  const FIELD_SERVICE = 'field_service';
+  const FIELD_OFFICE = 'field_office';
+  const FIELD_DIVISON = 'field_division';
+  const FIELD_MOBILE_NUMBER = 'field_mobile_number';
+  const FIELD_POSITION = 'field_position';
+  const FIELD_ID_NUMBER = 'field_id_number';
 
   /**
    * Creates and saves a user.

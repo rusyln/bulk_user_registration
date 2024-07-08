@@ -75,11 +75,32 @@ class BulkUserRegistration implements BulkUserRegistrationInterface {
     if (isset($userData[self::FIELD_FIRSTNAME])) {
       $user->set('field_firstname', $userData[self::FIELD_FIRSTNAME]);
     }
+    if (isset($userData[self::FIELD_MIDDLENAME])) {
+      $user->set('field_middlename', $userData[self::FIELD_MIDDLENAME]);
+    }
     if (isset($userData[self::FIELD_LASTNAME])) {
       $user->set('field_lastname', $userData[self::FIELD_LASTNAME]);
     }
+    if (isset($userData[self::FIELD_SEX])) {
+      $user->set('field_sex', $userData[self::FIELD_SEX]);
+    }
+    if (isset($userData[self::FIELD_SERVICE])) {
+      $user->set('field_service', $userData[self::FIELD_SERVICE]);
+    }
+    if (isset($userData[self::FIELD_OFFICE])) {
+      $user->set('field_office', $userData[self::FIELD_OFFICE]);
+    }
     if (isset($userData[self::FIELD_DIVISION])) {
       $user->set('field_division', $userData[self::FIELD_DIVISION]);
+    }
+    if (isset($userData[self::FIELD_MOBILE_NUMBER])) {
+      $user->set('field_mobile_number', $userData[self::FIELD_MOBILE_NUMBER]);
+    }
+    if (isset($userData[self::FIELD_POSITION])) {
+      $user->set('field_position', $userData[self::FIELD_POSITION]);
+    }
+    if (isset($userData[self::FIELD_ID_NUMBER])) {
+      $user->set('field_id_number', $userData[self::FIELD_ID_NUMBER]);
     }
 
 
@@ -183,8 +204,15 @@ class BulkUserRegistration implements BulkUserRegistrationInterface {
       self::FIELD_STATUS,
       self::FIELD_ROLE,
       self::FIELD_FIRSTNAME,
+      self::FIELD_MIDDLENAME,
       self::FIELD_LASTNAME,
+      self::FIELD_SEX,
+      self::FIELD_SERVICE,
+      self::FIELD_OFFICE,
       self::FIELD_DIVISION,
+      self::FIELD_MOBILE_NUMBER,
+      self::FIELD_POSITION
+      self::FIELD_ID_NUMBER
     ];
   }
 
