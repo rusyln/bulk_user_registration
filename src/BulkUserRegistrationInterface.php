@@ -26,6 +26,8 @@ interface BulkUserRegistrationInterface {
   const FIELD_MOBILE_NUMBER = 'field_mobile_number';
   const FIELD_POSITION = 'field_position';
   const FIELD_ID_NUMBER = 'field_id_number';
+  const FIELD_EMPLOYMENT_STATUS = 'field_employment_status';
+
 
   /**
    * Creates and saves a user.
