@@ -35,7 +35,6 @@ class BulkUserRegistration implements BulkUserRegistrationInterface {
    * @var array
    */
   protected $fieldNames = [];
-
   /**
    * Constructor.
    *
@@ -102,7 +101,6 @@ class BulkUserRegistration implements BulkUserRegistrationInterface {
     if (isset($userData[self::FIELD_ID_NUMBER])) {
       $user->set('field_id_number', $userData[self::FIELD_ID_NUMBER]);
     }
-
 
     // Single or multiple roles will be applied to the user object. Multiple
     // roles should be comma separated.
