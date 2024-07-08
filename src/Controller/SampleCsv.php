@@ -33,8 +33,8 @@ class SampleCsv extends ControllerBase {
 protected function getCsvData() {
 
   $rows[] = implode(',', $this->wrap($this->getFieldNames()));
-  $rows[] = 'active-user-default-role,mail1@example.com,1,firstname,lastname,default-role,division1'; // Updated sample data
-  $rows[] = 'blocked-user-default-role,mail2@example.com,0,default-role,firstname,lastname,division2'; // Updated sample data
+  $rows[] = 'active-user-default-role,mail1@example.com,1,role,firstname,middlename,lastname,sex,service,office,division,mobilenumber,position'; // Updated sample data
+  $rows[] = 'blocked-user-default-role,mail1@example.com,1,role,firstname,middlename,lastname,sex,service,office,division,mobilenumber,position'; // Updated sample data
   $rows = array_merge($rows, $this->getUserDataWithRole());
 
   return implode("\n", $rows);
@@ -53,7 +53,7 @@ protected function getUserDataWithRole() {
     ->get('allowed_roles');
 
   foreach (array_filter($allowedRoles) as $role) {
-    $data[] = "user_{$role},mail.{$role}@example.com,1,{$role},firstname,lastname,division-{$role}"; // Updated to include division
+    $data[] = "user_{$role},mail.{$role}@example.com,1,{$role},firstname,middlename,lastname,sex,service,office,division,mobilenumber,position"; // Updated to include division
   }
 
   return $data;
@@ -73,8 +73,14 @@ protected function getUserDataWithRole() {
       'status',
       'role',
       'field_firstname',
+      'field_middlename',
       'field_lastname',
+      'field_sex',
+      'field_service',
+      'field_office',
       'field_division',
+      'field_mobile_number',
+      'field_position',
     ];
     $extraFields = \Drupal::moduleHandler()->invokeAll('bulk_user_registration_extra_fields');
 
